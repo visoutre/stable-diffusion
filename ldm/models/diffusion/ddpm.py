@@ -16,7 +16,8 @@ from contextlib import contextmanager
 from functools import partial
 from tqdm import tqdm
 from torchvision.utils import make_grid
-from pytorch_lightning.utilities.distributed import rank_zero_only
+# from pytorch_lightning.utilities.distributed import rank_zero_only # this line was broken as of November 1, 2022
+from pytorch_lightning.utilities.rank_zero import rank_zero_only # this line fixes the broken line 19
 
 from ldm.util import log_txt_as_img, exists, default, ismap, isimage, mean_flat, count_params, instantiate_from_config
 from ldm.modules.ema import LitEma
